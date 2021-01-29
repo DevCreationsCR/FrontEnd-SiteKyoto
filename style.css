@@ -1,0 +1,780 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    /* 1rem = 10px */
+    font-size: 62.5%; 
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Nunito sans, sans-serif;
+}
+
+
+/* ------------------ NAVIGATION ------------------ */
+
+nav{
+    position: fixed;
+    height: 7rem;
+    width: 100%;
+    background: #333;
+    border-bottom: 0.1rem dotted #F1F1F1;
+    background: linear-gradient(to bottom, #333, #626262);
+    z-index: 100;
+}
+
+.logo-menu{
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    width: 5rem;
+    z-index: 250;
+    display: none;
+}
+
+.liste-nav{
+    background: #333;
+    border-bottom: 0.1rem dotted #F1F1F1;
+    background: linear-gradient(to bottom, #333, #626262);
+    height: 7rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    position: fixed;
+    z-index: 200;
+}
+
+.item-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-nav a{
+    font-size: 2.5rem;
+    color: #FFF;
+    text-decoration: none;
+    margin: 0 2rem;
+}
+
+.item-nav a::after{
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 0%;
+    height: 0.2rem;
+    background: #F1F1F1;
+    transition: all 0.2s ease-in-out;
+}
+
+.item-nav a:hover::after{
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .logo-menu{
+        display: block;
+    }
+    .liste-nav{
+        display: none;
+        flex-direction: column;
+        height: auto;
+    }
+    .liste-nav.active{
+        display: block;
+    }
+    .item-nav{
+        height: 7rem;
+    }
+    .item-nav:nth-child(1){
+        margin-top: 7rem;
+    }
+}
+
+
+/* ------------------ ACCUEIL ------------------ */
+
+.accueil{
+    width: 100%;
+    height: 100vh;
+    background-image: url(ressources/accueil-pic-lum-down.jpg);
+    background-position: center;
+    padding-top: 0.1rem;
+    border-bottom: 0.1rem dotted #777;
+}
+
+.logo-kyoto{
+    border-radius: 50%;
+    width: 18rem;
+    display: block;
+    margin: 18rem auto 0;
+}
+
+.accueil h1{
+    text-align: center;
+    font-size: 10rem;
+    text-shadow: 0 0 1rem #000;
+    color: #F1F1F1;
+    margin: 1rem 0 0 0;
+    font-family: Merienda One, sans-serif;
+}
+
+.sous-titre{
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #F1F1F1;
+    text-shadow: 0 0 1rem #000;
+    margin: 0.5rem 0;
+}
+
+.btn-accueil{
+    border-radius: 9999px;
+    background: crimson;
+    border: 1px solid #333;
+    color: #F1F1F1;
+    text-align: center;
+    font-size: 2rem;
+    display: block;
+    width: 20rem;
+    height: 7rem;
+    line-height: 7rem;
+    text-decoration: none;
+    margin: 3rem auto 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-accueil:hover{
+    background: rgb(177, 0, 36);
+    color: #FFF;
+}
+
+@media screen and (max-width: 850px){
+    .accueil{
+        height: 65rem;
+    }
+    .logo-kyoto{
+        margin: 12rem auto 0;
+    }
+    .accueil h1{
+        font-size: 6rem;
+    }
+    .sous-titre{
+        font-size: 2.3rem;
+    }
+    .btn-accueil{
+        width: 15rem;
+        height: 5rem;
+        line-height: 5rem;
+        font-size: 1.8rem;
+        margin: 1.5rem auto 0;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .accueil{
+        height: 55rem;
+    }
+    .logo-kyoto{
+        margin: 11rem auto 0;
+        width: 15rem;
+    }
+    .accueil h1{
+        font-size: 3.5rem;
+    }
+    .sous-titre{
+        font-size: 2rem;
+    }
+    .btn-accueil{
+        width: 13rem;
+        height: 4.5rem;
+        line-height: 4.5rem;
+        font-size: 1.6rem;
+        margin: 1.5rem auto 0;
+    }
+    .logo-menu{
+        top: 1.5rem;
+        width: 4rem;
+    }
+}
+
+/* ------------------ SECTION ASYMETRIQUE ------------------ */
+
+.section-asymetrique{
+    display: grid;
+    grid-template: 20rem repeat(24, 15rem) / 1fr 60rem 1fr 60rem 1fr;
+    background: #F1F1F1;
+}
+
+.section-asymetrique h2{
+    /* debut row / deb col / fin row / fin col */
+    grid-area: 1 / 1 / 2 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 7rem;
+    padding-top: 5rem;
+}
+
+/* ---- BLOC-1 ET 3 ---- */
+
+.bloc-1{
+    grid-area: 3 / 2 / 8 / 3;
+}
+
+.bloc-3{
+    grid-area: 17 / 2 / 22 / 3;
+}
+
+.bloc-left{
+    background: #333;
+    color: #F1F1F1;
+    position: relative;
+    left: 10rem;
+    border-radius: 2px;
+}
+
+.bloc-left img{
+    position: absolute;
+    left: 30rem;
+    top: 10rem;
+    width: 100%;
+}
+
+.bloc-txt-left{
+    width: 50%;
+    height: 100%;
+}
+
+.bloc-txt-left h3{
+    width: 150%!important;
+    font-size: 3.5rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem 0.5rem 1.5rem 1.5rem ;
+}
+
+.bloc-txt-left p{
+    line-height: 4rem;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.btn-bloc-left{
+    border-radius: 9999px;
+    outline: 0;
+    border: 0;
+    background: crimson;
+    color: #F1F1F1;
+    border:  1px solid #333;
+    padding: 2rem 3.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+
+/* ---- BLOC-2 ---- */
+
+.bloc-2{
+    grid-area: 10 / 4 / 15 / 5;
+    background: #333;
+    color: #F1F1F1;
+    position: relative;
+    right: 10rem;
+    border-radius: 2px;
+}
+
+.bloc-2 img{
+    position: absolute;
+    right: 30rem;
+    top: 10rem;
+    width: 100%;
+}
+
+.bloc-txt-2{
+    position: absolute;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.bloc-txt-2 h3{
+    position: relative;
+    right: 5rem;
+    width: 150%!important;
+    font-size: 3.5rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem 1.5rem 1.5rem 0.5rem;
+}
+
+.bloc-txt-2 p{
+    line-height: 4rem;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.btn{
+    border-radius: 9999px;
+    outline: 0;
+    border: 0;
+    background: crimson;
+    color: #F1F1F1;
+    border:  1px solid #333;
+    padding: 2rem 3.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+/* ---- LIGNE VERTICALES ---- */
+
+.ligne-gauche{  
+    grid-area: 1 / 2 / -1 / 3;
+    border-left: 1px solid #333;
+}
+
+.ligne-milieu{
+    grid-area: 1 / 3 / -1 / 4;
+    border-right: 1px solid #333;
+}
+
+.ligne-droite{
+    grid-area: 1 / 5 / -1 / 6;
+    border-left: 1px solid #333;
+}
+
+
+@media screen and (max-width: 1550px){
+
+    .section-asymetrique{
+        grid-template: 20rem repeat(26, 10rem) / 1fr 40rem 1fr ;
+    }
+    .bloc-1{
+        grid-area: 3 / 2 / 9 / 3;
+    }
+    .bloc-left{
+        left: -15rem;
+    }
+    .bloc-txt-left{
+        width: 70%;
+    }
+    .bloc-txt-left p{
+        line-height: 3rem;
+        padding: 1.5rem;
+    }
+    .btn-bloc-left{
+        padding: 1.5rem 3rem;
+        font-size: 1.8rem;
+    }
+
+
+    /* Bloc-2 */
+    .bloc-2{
+        grid-area: 11 / 2 / 17 / 3;
+        right: -15rem;
+    }
+    .bloc-txt-2{
+        width: 70%;
+    }
+    .bloc-2 img{
+        top: 15rem;
+    }
+    .bloc-txt-2 h3{
+        right: 8rem;
+    }
+    .bloc-txt-2 p{
+        line-height: 3rem;
+        padding: 1.5rem;
+    }
+    .btn{
+        padding: 1.5rem 3rem;
+        font-size: 1.8rem;
+    }
+
+    .bloc-3 {
+        grid-area: 19 / 2 / 25 / 3;
+    }
+
+    /* Lignes */
+    .ligne-gauche{
+        border-right: 1px solid #333;
+    }
+
+    .ligne-milieu, .ligne-droite {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 850px){
+
+    .section-asymetrique{
+        grid-template: 20rem repeat(35, 10rem) / 1fr 40rem 1fr ;
+    }
+    .section-asymetrique h2{
+        font-size: 4.5rem;
+        padding-top: 0rem;
+    }
+
+    .bloc-1{
+        grid-area: 2 / 2 / 8 / 3;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    .bloc-left{
+        left: 0rem;
+    }
+    .bloc-left img{
+        position: absolute;
+        left: 0rem;
+        top: 60rem;
+    }
+    .bloc-txt-left{
+        width: 100%;
+    }
+    .bloc-txt-left h3 {
+        width: 100%!important;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    .bloc-txt-left p{
+        line-height: 4rem;
+        font-size: 2rem;
+    }
+    .btn-bloc-left{
+        padding: 1.5rem 3rem;
+        font-size: 1.8rem;
+    }
+
+
+    /* Bloc-2 */
+    .bloc-2{
+        grid-area: 13 / 2 / 19 / 3;
+        right: 0rem;
+        border-top: 1px solid #f1f1f1;
+    }
+    .bloc-txt-2{
+        width: 100%;
+    }
+    .bloc-2 img{
+        position: absolute;
+        top: 60rem;
+        right: 0rem;
+    }
+    .bloc-txt-2 p{
+        line-height: 4rem;
+        padding: 2rem;
+        font-size: 2rem;
+    }
+    .bloc-txt-2 h3{
+        position: relative;
+        right: 0rem;
+        width: 100%!important;
+        text-align: center;
+        font-size: 3.5rem;
+        margin: 0.5rem 0;
+    }
+    .btn{
+        margin: 1rem auto;
+    }
+
+    .bloc-3 {
+        grid-area: 24 / 2 / 30/ 3;
+        border-top: 1px solid #f1f1f1;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .section-asymetrique {
+        grid-template: 20rem repeat(32,10rem) / 1fr 32rem 1fr;
+    }
+    .section-asymetrique h2 {
+        grid-area: 1 / 1 / 2 / -1;
+        font-size: 3rem;
+    }
+
+    .bloc-txt-left h3 {
+        font-size: 2.5rem;
+    }
+    .bloc-txt-left p {
+        font-size: 1.6rem;
+        line-height: 3.5rem;
+    }
+
+    /* Bloc-2*/
+    .bloc-2 {
+        grid-area: 12 / 2 / 18 / 3;
+    }
+    .bloc-txt-2 h3 {
+        font-size: 2.5rem;
+    }
+    .bloc-txt-2 p {
+        font-size: 1.6rem;
+        line-height: 3.5rem;
+    }
+
+    .bloc-3 {
+        grid-area: 22 / 2 / 28 / 3;
+    }
+}
+
+
+/* ------------------ PARRALAX ------------------ */
+
+.parralax{
+    width: 100%;
+    height: 30rem;
+    background: url(ressources/parallax-large-flou.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.parralax p{
+    font-size: 6rem;
+    color: #F1F1F1;
+}
+
+.parralax span{
+    display: block;
+    font-size: 2.5rem;
+    color: #F1F1F1;
+}
+
+@media screen and (max-width: 400px){
+    .parralax p{
+        font-size: 5.5rem;
+    }
+}
+
+
+/* ------------------ TARIFS ------------------ */
+
+.section-tarifs{
+    padding-bottom: 15rem;
+    border-bottom: 1px dashed #333;
+}
+
+.section-tarifs h3{
+    text-align: center;
+    font-size: 4.5rem;
+    margin:  12rem 0 2rem;
+    padding: 0 3rem;
+}
+
+.section-tarifs hr{
+    width: 20rem;
+    margin: 2rem auto 10rem;
+}
+
+.container-tarifs{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cartes-tarifs{
+    width: 35rem;
+    height: auto;
+    border-radius: 5rem;
+    margin: 1.5rem 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+}
+
+.cartes-tarifs:hover {
+    transform: translateY(-5px)
+}
+
+.cartes-tarifs h4{
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 3.5rem;
+    clip-path: polygon(0 0, 100% 0%, 100% 80%, 0 100%);
+    background: #ffafbf;
+}
+
+.cartes-tarifs span{
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.cartes-tarifs:nth-child(2) h4 {
+    background: #ff5073;
+}
+
+.cartes-tarifs:nth-child(3) h4 {
+    background: #ff0033;
+}
+
+.cartes-tarifs p{
+    font-size: 1.8rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid rgb(194,197,194);
+}
+
+.cartes-tarifs p:last-of-type{
+    border-bottom: 1px solid rgb(194,197,194);
+}
+
+.cartes-tarifs p:nth-child(odd) {
+    background: rgba(195,195,195,0.219);
+}
+
+.cartes-tarifs a{
+    display: block;
+    width: 20rem;
+    height: 5rem;
+    text-decoration: none;
+    border: 1px solid #333;
+    text-align: center;
+    border-radius: 9999px;
+    color: #333;
+    font-size: 1.8rem;
+    line-height: 5rem;
+    margin: 2rem auto;
+    transition: all 0.2s ease-in-out;    
+}
+
+.cartes-tarifs a:hover {
+    background: #333;
+    color: #f1f1f1;
+}
+
+@media screen and (max-width: 900px) {
+    .section-tarifs h3 {
+        font-size: 3.5rem;
+        margin: 8rem 0 8rem;
+    }
+}
+@media screen and (max-width: 425px) {
+    .section-tarifs h3 {
+        font-size: 3rem;
+        padding: 0 1rem;
+        margin: 5rem 0;
+    }
+    .section-tarifs hr {
+        width: 20rem;
+        margin: 2rem auto 2remx;
+    }
+}
+
+
+/* ------------------ CONTACT ------------------ */
+
+.section-contact{
+    padding-bottom: 10rem;
+}
+
+.section-contact h2{
+    text-align: center;
+    color: #333;
+    font-size: 4.8rem;
+    font-weight: 400;
+    margin-bottom: 5rem;
+    padding: 7rem 0 0 0;
+}
+
+.container-form{
+    margin: 0 auto;
+    width: 70%;
+}
+
+textarea{
+    width: 100%;
+    height: 20rem;
+    border: none;
+    border: 3px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    resize: none;
+    outline: none;
+    font-size: 2rem;
+    background: #f1f1f1;
+}
+
+.form-group{
+    position: relative;
+    margin-bottom: 4.5rem;
+}
+
+.form-groupe label{
+    color: #AAA;
+    font-size: 2rem;
+}
+
+.form-groupe input{
+    display: block;
+    width: 100%;
+    padding: 1rem 0rem;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 3px solid #aaa;
+    color: #666;
+    font-size: 2rem;
+}
+
+.form-groupe:nth-child(3){
+    margin-top: 2.5rem;
+}
+
+.form-groupe .button-sub{
+    display: block;
+    width: auto;
+    margin: 1.5rem 0 0 0;
+    padding: 1.5rem 6rem;
+    border: 3px solid rgb(144,144,144);
+    border-radius: 9999px;
+    background-image: linear-gradient(to right, transparent 50%, rgb(65,65,65) 50%, rgb(134,134,134));
+    background-size: 200%;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    font-size: 2.4rem;
+}
+
+.form-group .button-sub:hover{
+    color: #FFF;
+    background-position: 100%;
+    border: 3px solid #fff;
+}
+
+@media screen and (max-width: 1300px) {
+    .section-contact h2 {
+        padding: 7rem 0 0 0;
+    }
+    .container-form {
+        padding-left: 0;
+    }
+}
+
+/* ------------------ FOOTER ------------------ */
+
+footer{
+    background: #333;
+    width: 100%;
+    color: #FFF;
+    text-align: center;
+    padding: 1rem 0;
+}
+
